@@ -10,10 +10,6 @@
 
         let availChoices = ["Rock", "Paper", "Scissor"];
 
-        // To track players score
-        let humanScore = 0;
-        let computerScore = 0;
-
         // To get the computer choice
         function getComputerChoice() {
             let random = Math.floor(Math.random() * 3);
@@ -27,9 +23,6 @@
 
             return humanChoice.toLowerCase();
         }
-
-        const humanSelection = getHumanChoice();
-        const computerSelection = getComputerChoice();
 
         // For a Single Round
         function playRound(humanChoice, computerChoice) {
@@ -60,7 +53,25 @@
             }
         }
 
-        playRound(humanSelection, computerSelection);
+        let humanSelection = 0;
+        let computerSelection = 0;
+        let computerScore = 0;
+        let humanScore = 0;
+
+        function playGame() {
+            for (let i = 0; i < 5; i ++) {
+                computerSelection = getComputerChoice();
+                console.log(computerSelection);
+                humanSelection = getHumanChoice();
+
+                playRound(humanSelection, computerSelection);
+
+                console.log(`Your score: ${humanScore}`);
+                console.log(`Computer Score: ${computerScore}`);
+            }
+        }
+
+        playGame();
 
     </script>
 </body>
