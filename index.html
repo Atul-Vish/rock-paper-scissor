@@ -7,7 +7,15 @@
 </head>
 <body>
     <script>
-        console.log("Hello World!");
+    //    1. To get the computer choice
+        function getComputerChoice() {
+            let availChoices = ["Rock", "Paper", "Scissor"];
+            let random = Math.floor(Math.random() * 3);
+
+            return availChoices[random];
+        }
+
+        console.log(getComputerChoice());
     </script>
 </body>
 </html>
