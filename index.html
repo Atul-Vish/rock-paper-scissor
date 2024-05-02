@@ -9,7 +9,7 @@
     <script>
 
         let availChoices = ["Rock", "Paper", "Scissor"];
-        
+
         // 1. To get the computer choice
         function getComputerChoice() {
             let random = Math.floor(Math.random() * 3);
@@ -19,9 +19,11 @@
 
         // 2. To get the human choice
         function getHumanChoice() {
+            let humanChoice = prompt("Enter your choice:\n'1' for Rock\n'2' for Paper\n'3' for Scissor", '');
 
+            return availChoices[humanChoice - 1];
         }
-    
+        
     </script>
 </body>
 </html>
