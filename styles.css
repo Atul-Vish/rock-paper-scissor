@@ -1,0 +1,51 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    margin-top: 70px;
+    border: 8px solid red;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 1400px;
+    height: 800px;
+    border: 7px solid black;
+}
+
+.content {
+    height: 100px;
+}
+
+.player {
+    display: flex;
+    height: 600px;
+}
+
+.player div {
+    flex: 1;
+}
+
+.choice {
+    height: 100px;
+}
+
+/* Temporary for styling */
+.container div {
+    border: 1px solid blue;
+}
+
+.choice {
+    display: flex;
+    justify-content: space-between;
+}
+
+.choice div {
+    flex: 1;
+}
