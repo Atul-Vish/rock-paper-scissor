@@ -48,18 +48,12 @@ let availChoices = ["Rock", "Paper", "Scissor"];
         let computerScore = 0;
         let humanScore = 0;
 
-        // Let us play 5 rounds of Rock-Paper-Scissor
-        function playGame() {
-            for (let i = 0; i < 5; i ++) {
-                computerSelection = getComputerChoice();
-                console.log(computerSelection);
-                humanSelection = getHumanChoice();
+        
+        const you = document.querySelector(".you");
 
-                playRound(humanSelection, computerSelection);
+        const yourChoice = document.createElement("div");
+        yourChoice.classList.add("your-choice");
+        yourChoice.setAttribute("style", ".your-choice");
+        yourChoice.textContent = "You choose rock!";
 
-                console.log(`Your score: ${humanScore}`);
-                console.log(`Computer Score: ${computerScore}`);
-            }
-        }
-
-        playGame();
+        you.appendChild(yourChoice);
