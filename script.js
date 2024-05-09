@@ -14,6 +14,7 @@ let availChoices = ["Rock", "Paper", "Scissor"];
             return humanChoice.toLowerCase();
         }
 
+        let humanSelection = "";
         // For a Single Round
         function playRound(humanChoice, computerChoice) {
 
@@ -22,6 +23,7 @@ let availChoices = ["Rock", "Paper", "Scissor"];
             // 3. Else computer wins and increase the computer score
                 // 3.1 Logs the message you lost
 
+            
             if (humanSelection === computerSelection) {
                 prompt("It's a tie!", "");
 
@@ -39,21 +41,61 @@ let availChoices = ["Rock", "Paper", "Scissor"];
 
             } else {
                 computerScore++;
-                prompt(`You lose! ${computerChoice} beats ${humanChoice}`)
+                prompt(`You lose! ${computerSelection} beats ${humanSelection}`)
             }
         }
 
-        let humanSelection = 0;
-        let computerSelection = 0;
         let computerScore = 0;
         let humanScore = 0;
 
-        
-        const you = document.querySelector(".you");
+        // let humanSelection = getHumanChoice();
+        function myInput(input) {
+            const you = document.querySelector(".you");
+            const yourChoice = document.querySelector(".your-choice");
+            yourChoice.textContent = `You choose ${input}!`;
+            you.appendChild(yourChoice);
+        }
 
-        const yourChoice = document.createElement("div");
-        yourChoice.classList.add("your-choice");
-        yourChoice.setAttribute("style", ".your-choice");
-        yourChoice.textContent = "You choose rock!";
+        let computerSelection = "";
+        function computerInput() {
+            const computer = document.querySelector(".computer");
+            const computerChoice = document.querySelector(".computer-choice");
+            computerSelection = getComputerChoice();
+            computerChoice.textContent = `Computer choose ${computerSelection}!`;
+            computer.appendChild(computerChoice);
+        }
 
-        you.appendChild(yourChoice);
+        const buttons = document.querySelectorAll("button");
+
+
+        buttons.forEach((button) => {
+
+            button.addEventListener("click", () => {
+                myInput(button.className);
+                computerInput();
+                humanSelection = button.className;
+                console.log(humanSelection);
+                playRound(humanSelection, computerSelection);
+            });
+        });
+
+        // Why doesn't it work when I pass the myInput("rock") method directly 
+        // let rock = document.querySelector(".rock");
+        // rock.addEventListener("click", (event) => { // Why do I need this formality
+        //     myInput("rock");
+        //     computerInput();
+        // });
+
+        // let paper = document.querySelector(".paper");
+        // paper.addEventListener("click", (event) => {
+        //     myInput("paper");
+        //     computerInput();
+        // });
+
+        // let scissor = document.querySelector(".scissor");
+        // scissor.addEventListener("click", (event) => {
+        //     myInput("scissor");
+        //     computerInput();
+        // });
+
+
