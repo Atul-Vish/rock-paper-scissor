@@ -15,6 +15,9 @@ let availChoices = ["Rock", "Paper", "Scissor"];
         }
 
         let humanSelection = "";
+        let message = "";
+        let computerScore = 0;
+        let humanScore = 0;
         // For a Single Round
         function playRound(humanChoice, computerChoice) {
 
@@ -22,31 +25,36 @@ let availChoices = ["Rock", "Paper", "Scissor"];
             // 2. If human wins then increase the score and log the winning message.
             // 3. Else computer wins and increase the computer score
                 // 3.1 Logs the message you lost
+            const content = document.querySelector(".content");
+            const yourPoints = document.querySelector(".you-points");
+            const computerPoints = document.querySelector(".com-points");
 
             
+
             if (humanSelection === computerSelection) {
-                prompt("It's a tie!", "");
+                message = "It's a tie!";
 
             } else if (humanSelection === 'rock' && computerSelection === 'scissor') {
                 humanScore++;
-                prompt("You win! Rock beats Scissor");
+                message = "You win! Rock beats Scissor";
 
             } else if (humanSelection === 'paper' && computerSelection === 'rock') {
                 humanScore++;
-                prompt("You win! Paper beats Rock");
+                message = "You win! Paper beats Rock";
 
             } else if (humanSelection === 'scissor' && computerSelection === 'paper') {
                 humanScore++;
-                prompt("You win! Scissor beats Paper");
+                message = "You win! Scissor beats Paper";
 
             } else {
                 computerScore++;
-                prompt(`You lose! ${computerSelection} beats ${humanSelection}`)
+                message = `You lose! ${computerSelection} beats ${humanSelection}`;
             }
-        }
 
-        let computerScore = 0;
-        let humanScore = 0;
+            content.textContent = message;
+            yourPoints.textContent = humanScore;
+            computerPoints.textContent = computerScore;
+        }
 
         // let humanSelection = getHumanChoice();
         function myInput(input) {
