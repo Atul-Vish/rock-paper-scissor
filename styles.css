@@ -48,11 +48,6 @@ body {
     height: 100px;
 }
 
-/* Temporary for styling */
-/* .container div {
-    border: 1px solid blue;
-} */
-
 .choice {
     display: flex;
     justify-content: space-between;

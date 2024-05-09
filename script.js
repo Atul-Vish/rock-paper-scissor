@@ -1,13 +1,11 @@
 let availChoices = ["Rock", "Paper", "Scissor"];
 
-        // To get the computer choice
         function getComputerChoice() {
             let random = Math.floor(Math.random() * 3);
 
             return availChoices[random].toLowerCase();
         }
 
-        // To get the human choice
         function getHumanChoice() {
             let humanChoice = prompt("Enter your choice", '');
 
@@ -18,18 +16,12 @@ let availChoices = ["Rock", "Paper", "Scissor"];
         let message = "";
         let computerScore = 0;
         let humanScore = 0;
-        // For a Single Round
+
         function playRound(humanChoice, computerChoice) {
 
-            // 1. If human and computer choice are same then its a tie
-            // 2. If human wins then increase the score and log the winning message.
-            // 3. Else computer wins and increase the computer score
-                // 3.1 Logs the message you lost
             const content = document.querySelector(".content");
             const yourPoints = document.querySelector(".you-points");
             const computerPoints = document.querySelector(".com-points");
-
-            
 
             if (humanSelection === computerSelection) {
                 message = "It's a tie!";
@@ -54,9 +46,14 @@ let availChoices = ["Rock", "Paper", "Scissor"];
             content.textContent = message;
             yourPoints.textContent = humanScore;
             computerPoints.textContent = computerScore;
+
+            if (humanScore === 5) {
+                content.textContent = "YAY! YOU WON THE GAME.."
+            } else if (computerScore === 5) {
+                content.textContent = "OOPS! GUESS YOU LOST.."
+            }
         }
 
-        // let humanSelection = getHumanChoice();
         function myInput(input) {
             const you = document.querySelector(".you");
             const yourChoice = document.querySelector(".your-choice");
@@ -86,24 +83,5 @@ let availChoices = ["Rock", "Paper", "Scissor"];
                 playRound(humanSelection, computerSelection);
             });
         });
-
-        // Why doesn't it work when I pass the myInput("rock") method directly 
-        // let rock = document.querySelector(".rock");
-        // rock.addEventListener("click", (event) => { // Why do I need this formality
-        //     myInput("rock");
-        //     computerInput();
-        // });
-
-        // let paper = document.querySelector(".paper");
-        // paper.addEventListener("click", (event) => {
-        //     myInput("paper");
-        //     computerInput();
-        // });
-
-        // let scissor = document.querySelector(".scissor");
-        // scissor.addEventListener("click", (event) => {
-        //     myInput("scissor");
-        //     computerInput();
-        // });
 
 
